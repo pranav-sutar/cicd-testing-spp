@@ -15,7 +15,11 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
+<<<<<<< HEAD
           Learn React Good Afternoon
+=======
+          This is changed Code.
+>>>>>>> a7de846147e121e74a80d87273a55af4e2c085f6
         </a>
       </header>
     </div>
