@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version:  20.x
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -25,13 +25,10 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-
     - run: npm ci
-    - run: npm run build --if-present
-    
-    # Ignore warnings during tests by using CI=false
-    - run: CI=false npm test
+    - run: NODE_OPTIONS=--openssl-legacy-provider npm run build
+    - run: npm test
+
 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4
